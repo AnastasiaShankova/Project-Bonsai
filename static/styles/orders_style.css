@@ -1,0 +1,86 @@
+.order_card {
+    margin-left: 100px;
+    font-family: "Comfortaa-light";
+}
+
+.form_control {
+    width: 120px;
+    height: 20px;
+}
+
+.th_first_name,
+.th_last_name,
+.th_email {
+    text-align: left;
+}
+
+
+
+.delivery_address,
+.payment_method,
+.delivery_method {
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+
+#id_delivery_address {
+    width: 300px;
+    border-radius: 5px;
+    height: 60px;
+}
+
+.form_label {
+    margin-right: 20px;
+}
+
+.th_email {
+    width: 220px;
+}
+
+th {
+    width: 170px;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+.order_total_sum {
+    text-align: right;
+}
+
+.th_first_name,
+.th_last_name,
+.td_first_name,
+.td_last_name {
+    width: 50px;
+}
+
+
+.create_order_btn {
+    font-size: 12px;
+    color: white;
+    padding: 5px;
+    height: 30px;
+    background-color: rgb(69, 128, 66);
+    border-radius: 12px;
+    margin-left: 25px;
+    font-family: "Comfortaa-light";
+}
+
+/* included_orders.html */
+.order_details {
+    margin-top: 10px;
+    font-family: "Comfortaa-light";
+    position: relative;
+    left: 50px;
+    margin-bottom: 30px;
+}
+
+.order_message {
+    font-family: "Comfortaa-light";
+    position: relative;
+    left: 50px;
+}

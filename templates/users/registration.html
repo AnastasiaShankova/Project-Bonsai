@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+
+{% load static %}
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+    <div class="users_wrapper">
+        <div class="form_errors">
+        {%if form.errors%}
+        {{form.errors}}
+        {%endif%}
+        </div>
+        <form class="registration" method="post" action="{% url "users:registration" %}" autocomplete="off">
+            {% csrf_token %}
+            {{form.first_name}}
+            {{form.last_name}}
+            {{form.username}}
+            {{form.email}}
+            {{form.password1}}
+            {{form.password2}}
+
+            <button type="submit">Создать аккаунт</button>
+            <p>Уже есть аккаунт? <a href="{% url "users:login" %}">Авторизоваться</a></p>
+        </form>
+    </div>  
+{% endblock %}
+

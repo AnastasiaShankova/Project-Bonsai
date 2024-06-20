@@ -1,0 +1,63 @@
+{% extends "main.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="bg_basket">
+    <img class=""src="{%static "images/bg_basket.png"%}" alt="">
+</div>
+<div class="info_message_for_the_buyer">
+    {% if messages %}
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+    {% endif %}
+</div>
+<div class="basket">
+    {% if basket%}
+            <table class="basket_in_order">
+                <thead>
+                <tr><th>Товар</th><th>Количество</th><th>Изменить количество</th><th>Стоимость</th></tr>
+                </thead>
+                <tfoot>
+                    <tr><th colspan="3" class="order_total_sum ">Итоговая стоимость: </th><th>{{total_sum}} </th></tr>
+                </tfoot>
+                <tbody>
+                    {% for basket in basket %}
+                <tr><td>{{basket.plant.name}}</td>
+                    <td id = "{{basket.id}}" >{{basket.quantity}}</td>
+                    <td>
+
+                        <a id = "oneminus" data-basket_id ="{{basket.id}}" data-sign="minus" data-basket_quantity="{{basket.quantity}}"   class = "basket_img_a" href="{%url 'shop:basket_change_qty' basket_id=basket.id sign='minus' %}">
+                        <img  class = "basket_quantity_change" src= "{% static "images/oneminus.png" %}">
+                        </a>
+                        <a id = "oneplus" class = "basket_img_a" href="{%url 'shop:basket_change_qty' basket_id=basket.id sign='plus' %}"> 
+                        <img class = "basket_quantity_change" src= "{% static "images/oneplus.png" %}">
+                        </a>
+                        <a id = "del_from_basket" data-basket_plant_id ="{{basket.plant.id}}" class = "basket_img_a" href="{%url 'shop:basket_remove' basket.id%}">
+                        <img class = "basket_quantity_delete" src= "{% static "images/delete.png" %}">
+                        </a>
+                    </td>
+                    <td>{{basket.sum}}</td></tr>   
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        <div class ="basket_add_order_div">Создать заказ:
+            <a class ="basket_add_order" href="{% url "orders:create_order" %}" >
+            <img class = "basket_add_order_img" src= "{% static "images/order.png" %}">
+            </a>
+        </div>
+
+
+    {% else %}
+    <div class="basket_message">
+        Корзина пуста
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock  %}

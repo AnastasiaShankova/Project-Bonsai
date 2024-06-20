@@ -1,0 +1,66 @@
+{% extends "main.html"%}
+
+{% load static %}
+
+{% block title %}About plant{% endblock title %}
+
+{% block content %}
+{% comment %} <div class="info_message_for_the_buyer">
+    {% if messages %}
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+    {% endif %}
+</div>  {% endcomment %}
+
+ 
+<table class="aboutplant_table">
+    {%for selected_plant in selected_plant%}
+
+<tr><td class="image_td" rowspan="5"> <img class="aboutplant_img" src={{selected_plant.image.url}}></td><td class="aboutplant_name" >{{selected_plant.name}}</td></tr>
+
+<tr><td class="aboutplant_price">{{selected_plant.price}} р.</td></tr>
+
+<tr><td class="aboutplant_height">{{selected_plant.height}} </td></tr>
+
+<tr><td>
+    <div class="in_basket_about_plant">
+    <form id="form_buying_plant" {% if request.user.is_authenticated %} 
+    data-plant_id = "{{plant.id}}" 
+    data-basket_total_qty="{{basket.total_qty}}"
+    data-qty_in_basket="{{basket.quantity_in_basket}}"
+    data-available_quantity="{{plant.available_quantity}}"
+    action="{% url 'shop:basket_add' plant.id %}"
+    {% else %} 
+    action="{% url 'users:login'%}"
+    {% endif %}>
+        {% csrf_token %}
+        {% if request.user.is_authenticated %}
+                    {% if plant.available_quantity %}
+                <button  type="submit" id="submit_btn" class="about_plant_in_basket" >
+                В корзину    
+                </button>
+                    {% elif plant.available_quantity == 0  %}
+                    <button  type="submit" id="submit_btn" class="in_busket_a disabled_button" disabled>
+                    В корзину    
+                    </button>
+                {% endif %}
+    {% else %}
+    <button  type="submit" id="submit_btn" class="in_basket_about_plant_btn" >
+        <a class="in_busket_a" href="{% url "users:login" %}">В корзину </a>    
+    </button>
+{% endif %}
+
+
+
+
+    </form>
+</div>
+     </td></tr>
+<tr><td class="aboutplant_description">{{selected_plant.description}} </td></tr>
+    
+</table>   
+    
+{% endfor %}
+
+{% endblock%}

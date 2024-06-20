@@ -1,0 +1,10 @@
+{%load static%}
+
+<ul class="navbar">
+    {%block navbar%}
+    <li><a href="{% url "shop:index"%}">Главная</a></li>
+    <li><a href="{% url "shop:about"%}">О нас</a></li>
+    <li><a href="{% url "shop:catalog_1"%}">Каталог</a></li>
+    <li><a href="{%url "shop:contacts"%}">Контакты</a></li>
+    {%endblock navbar%}
+</ul>

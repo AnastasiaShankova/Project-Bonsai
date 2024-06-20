@@ -1,0 +1,45 @@
+{% load static %}
+
+{% if orders %}
+<table class="order_details">
+    <thead>
+        <tr>
+            <th>Номер заказа</th>
+            <th>Дата заказа</th>
+            <th>Способ оплаты</th>
+            <th>Доставка</th>
+            <th>Статус заказа</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders%}
+        <tr>
+           <td>{{order}}</td>
+           <td>{{order.created_timestamp}}</td>
+           <td>{% if order.payment_on_get %}
+            Оплата при получении
+            {% else %}
+            Оплачен
+            {% endif %}</td>
+           <td>{% if order.delivery_address %}
+            {{order.delivery_address}}
+            {% else %}
+            Самовывоз
+            {% endif %}</td>
+           <td>
+            {{order.status}}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="order_message">
+    У Вас пока нет оформленных заказов
+</div>
+
+{% endif %}
+
+
+
+

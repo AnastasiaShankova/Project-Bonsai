@@ -1,0 +1,102 @@
+{% extends "main.html" %}
+
+{% load static %}
+{% block title %}Category{% endblock %}
+
+{% block content %}
+<div class="search">
+    <form action="{% url "shop:catalog_1" %}">
+    <input type="search" placeholder = "Введите назнание..." name="search">
+    <button class="search_btn">
+        Поиск
+    </button>
+</form>
+</div>
+<div class="filter">
+    <form >
+        <select name='select'>
+        <option selected value="/catalog/1/">Вce категории</option>
+        {% for cat in categories  %}
+          <option  value="/category/{{cat.id}}/1">{{cat.name}}</option>
+          {% endfor %}
+          </select>
+        <input class="select" type = button value="Перейти"  onclick='top.location.href=this.form. select.options[this.form.select.selectedIndex].value' />
+    </form>
+</div>
+<div class="catalog">
+    {% for plant in plants %}
+    <div class="item_card"> 
+        <div class="item_img">
+            <img class="item_img" src={{plant.image.url}}>
+        </div>
+        <div class="item_name">
+           <h3> <a class="aboutplant" href="aboutplant/{{plant.id}}">{{plant.name}}</a></h3>
+        </div>
+        
+        <div class="item_height">
+            <h4>Высота: {{plant.height}}</h4>
+        </div>
+        <div class="item_price">
+            <h4>{{plant.price}} р.</h4>
+        </div>
+        <div class="in_basket">
+            
+            <form id="form_buying_plant" {% if request.user.is_authenticated %} data-plant_id = "{{plant.id}}" data-basket_total_qty="{{basket.total_qty}}" data-qty_in_basket="{{basket.quantity_in_basket}}" data-available_quantity="{{plant.available_quantity}}" action="{% url 'shop:basket_add' plant.id %}" {% else %} action="{% url 'shop:basket_add' plant.id %}" {% endif %} >
+                {% csrf_token %}
+                
+                {% if request.user.is_authenticated %}
+                    {% if plant.available_quantity %}
+                <button  type="submit" id="submit_btn" class="in_busket_a" >
+                В корзину    
+                </button>
+                    {% elif plant.available_quantity == 0  %}
+                    <button  type="submit" id="submit_btn" class="in_busket_a disabled_button" disabled>
+                    В корзину    
+                    </button>
+                {% endif %}
+                    {% else %}
+                    <button  type="submit" id="submit_btn" >
+                        <a class="in_busket_a" href="{% url "users:login" %}">В корзину </a>    
+                        </button>
+                    
+                {% endif %}
+            
+            </form>
+
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+
+<nav class="my_pagination">
+    <ul class="pagination ">
+
+    <li class="page-item">
+        {% if plants.has_previous %}
+        <a class="page-link " href=" {% url "shop:category_id_page" choice=selected_category.id page=plants.previous_page_number %} ">Предыдущая</a>
+        {% endif %}
+
+        
+    </li>
+    {% for num_page in plants.paginator.get_elided_page_range %}
+    {% if  num_page == plants.number%}
+    <li class="current_page-item" >
+        <a class="page-link " href=" {% url "shop:category_id_page" choice=selected_category.id page=num_page %} ">{{plants.number}}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+
+
+    {% if plants.has_next %}
+    <li class="page-item">
+        <a class="page-link" href="{% url "shop:category_id_page" choice=selected_category.id page=plants.next_page_number %}">Следующая</a>
+    </li>
+    {% endif %}   
+    </ul>
+</nav>
+
+
+
+{% endblock content %}

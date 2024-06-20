@@ -1,0 +1,88 @@
+{% extends "main.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="bg_basket">
+    <img class=""src="{%static "images/bg_basket.png"%}" alt="">
+</div>
+<div class="info_message_for_the_buyer">
+    {% if messages %}
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+    {% endif %}
+</div> 
+<form action ="{% url "orders:create_order"%}" method="post">
+    {% csrf_token %}
+<div class="order_card">
+<table class="basket_in_order">
+    <thead>
+    <tr><th>Товар</th><th>Количество</th><th>Изменить количество</th><th>Стоимость</th></tr>
+    </thead>
+    <tfoot>
+        <tr><th colspan="3" class="order_total_sum ">Итоговая стоимость: </th><th>{{total_sum}} </th></tr>
+    </tfoot>
+    <tbody>
+        {% for basket in basket %}
+    <tr><td>{{basket.plant.name}}</td>
+        <td>{{basket.quantity}}</td>
+        <td>
+            <a class = "basket_img_a" href="{%url 'shop:basket_change_qty' basket_id=basket.id sign='minus' %}">
+            <img class = "basket_quantity_change" src= "{% static "images/oneminus.png" %}">
+            </a>
+            <a class = "basket_img_a" href="{%url 'shop:basket_change_qty' basket_id=basket.id sign='plus' %}"> 
+            <img class = "basket_quantity_change" src= "{% static "images/oneplus.png" %}">
+            </a>
+            <a class = "basket_img_a" href="{%url 'shop:basket_remove' basket.id%}">
+            <img class = "basket_quantity_delete" src= "{% static "images/delete.png" %}">
+            </a></td>
+            <td>{{basket.sum}}</td></tr>   
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<table class="order_details">  
+    <tr>
+        <th class="th_first_name"><label for="id_first_name">Имя:</lable></th>
+        <th class="th_last_name"><label for="id_last_name">Фамилия:</lable></th>
+        <th class="th_email"><label for="id_email">Электронная почта:</lable></th>
+    </tr>  
+    <tr>
+        <td class="td_first_name"><input type="text" class="form_control", id="id_first_name" name="first_name" value="{% if form.first_name.value %}{{form.first_name.value}}{% endif %}" required></td>
+        <td class="td_last_name"><input type="text" class="form_control", id="id_last_name" name="last_name" value="{% if form.last_name.value %}{{form.last_name.value}}{% endif %}"  required></td>
+        <td class="td_email"><input type="email" class="form_control", id="id_email" name="email" placeholder="В формате: ***@***.** " value="{% if form.email.value %}{{form.email.value}}{% endif %}"  required></td>
+    </tr>  
+</table>
+<div class="delivery_method">
+    <label for ="delivery" class="form_label">Способ доставки: </lable>
+
+        <input type="radio" name="requires_delivery" id="id_requires_delivery" value="1" checked>
+        <label for ="id_requires_delivery"> Нужна доставка </lable>
+
+        <input type="radio" name="requires_delivery" id="id_requires_delivery" value="0" >
+        <label for ="id_requires_delivery"> Самовывоз </lable>
+</div>
+<div class="delivery_address">
+    <label for="id_delivery_address" class="form_label">Адрес доставки:</label>
+    <textarea name="delivery_address" id="id_delivery_address"></textarea>
+</div>
+<div class="payment_method">
+    <label for="" class="form_label">Способ оплаты:</label>
+    <input type="radio" name="payment_on_get" id="id_payment_on_get" value="0" checked >
+    <label for="id_payment_on_get">Оплата картой</label>
+
+    <input type="radio" name="payment_on_get" id="id_payment_on_get" value="1" >
+    <label for="id_payment_on_get">Наличными/картой при получении</label>
+    {% if form.payment_on_get.errors %}
+    <messages class="errors"></messages>
+    {% endif %}
+
+    <button class="create_order_btn">Оформить заказ</button>
+</div>
+
+</form>
+</div>
+
+{% endblock %}

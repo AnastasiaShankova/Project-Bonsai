@@ -1,0 +1,441 @@
+.users_background {
+    background-image: url(../users_images/user_login.jpg);
+    background-repeat: no-repeat;
+    background-position: auto auto;
+    background-size: cover;
+    padding: 300px;
+
+}
+
+
+.users_wrapper {
+    position: absolute;
+    width: 320px;
+    left: 50%;
+    margin-left: -160px;
+    top: 30%;
+    margin-top: -75px;
+}
+
+
+.signin {
+    height: 90px;
+    width: 300px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.signin::before {
+    display: block;
+    position: relative;
+    height: 2px;
+    background: rgb(52, 56, 61);
+    content: '';
+    top: 44px;
+    margin-left: 20px;
+    z-index: 1;
+}
+
+.signin input:first-of-type {
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.signin input:last-of-type {
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.signin input[type="text"],
+.signin input[type="password"],
+.signin button[type="submit"] {
+    background: rgb(28, 30, 33);
+    box-shadow: inset -100px -100px 0 rgb(28, 30, 33);
+    /*Prevent yellow autofill color*/
+    color: rgb(52, 56, 61);
+}
+
+.signin input[type="text"],
+.signin input[type="password"] {
+    position: relative;
+    display: block;
+    width: 280px;
+    height: 45px;
+    border: 0;
+    outline: 0;
+    top: -2px;
+    padding: 0 0 0 20px;
+    font-weight: 700;
+}
+
+.signin input[type="text"]:focus,
+.signin input[type="password"]:focus {
+    color: rgb(255, 255, 255);
+}
+
+.signin button[type="submit"] {
+    display: block;
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    color: rgb(52, 56, 61);
+    border-radius: 50px;
+    outline: 0;
+    z-index: 2;
+    top: 19px;
+    right: -24px;
+    border: 6px solid rgb(52, 56, 61);
+    font-size: 25px;
+    text-indent: 0px;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+.signin button[type="submit"]:hover {
+    color: rgb(28, 90, 15);
+    text-shadow: 0 0 10px rgb(28, 90, 15);
+    cursor: pointer;
+}
+
+.signin p {
+    width: 450px;
+    font-family: "Comfortaa-light";
+    color: rgb(79, 85, 97);
+    padding: 0 20px;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 5px 0 0 0;
+}
+
+.signin p>a {
+    font-family: "Comfortaa-light";
+    color: rgb(28, 90, 15);
+    text-decoration: none;
+}
+
+.signin p>a:hover {
+    border-bottom: 1px solid;
+}
+
+.alert-success {
+    color: green;
+    font-size: 20px;
+    font-family: "Comfortaa-light";
+}
+
+.alert-warning {
+    color: red;
+}
+
+
+
+
+/* registration */
+
+.registration {
+    height: 90px;
+    width: 300px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.registration::before {
+    display: block;
+    position: relative;
+    height: 2px;
+    background: rgb(52, 56, 61);
+    content: '';
+    top: 44px;
+    margin-left: 20px;
+    z-index: 1;
+}
+
+.registration input:first-of-type {
+    border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+}
+
+.registration input:last-of-type {
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+}
+
+.registration input[type="text"],
+.registration input[type="password"],
+.registration button[type="submit"],
+.registration input[type="email"] {
+    background: rgb(28, 30, 33);
+    box-shadow: inset -100px -100px 0 rgb(28, 30, 33);
+    color: rgb(52, 56, 61);
+}
+
+.registration input[type="text"],
+.registration input[type="password"],
+.registration input[type="email"] {
+    position: relative;
+    display: block;
+    width: 280px;
+    height: 45px;
+    border-bottom: 0.5px;
+    outline: 0;
+    top: -2px;
+    padding: 0 0 0 20px;
+    font-weight: 700;
+}
+
+.registration input[type="text"]:focus,
+.registration input[type="email"]:focus,
+.registration input[type="password"]:focus {
+    color: rgb(255, 255, 255);
+}
+
+.registration button[type="submit"] {
+    display: block;
+    position: absolute;
+    width: 139px;
+    height: 89px;
+    color: rgb(52, 56, 61);
+    border-radius: 50px;
+    outline: 0;
+    z-index: 2;
+    top: 19px;
+    right: -80px;
+    border: 6px solid rgb(52, 56, 61);
+    font-size: 25px;
+    text-indent: 0px;
+    padding-left: 9px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+.registration button[type="submit"]:hover {
+    color: rgb(28, 90, 15);
+    text-shadow: 0 0 10px rgb(28, 90, 15);
+    cursor: pointer;
+}
+
+.registration p {
+    font-family: "Comfortaa-light";
+    width: 450px;
+    color: rgb(79, 85, 97);
+    padding: 0 20px;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 5px 0 0 0;
+}
+
+.registration p>a {
+    font-family: "Comfortaa-light";
+    color: rgb(28, 90, 15);
+    text-decoration: none;
+}
+
+.registration p>a:hover {
+    border-bottom: 1px solid;
+}
+
+/* .errorlist li {
+    visibility: hidden;
+} */
+
+/* profile */
+
+.user_profile_form {
+    width: 500px;
+    margin-top: 5px;
+    margin-left: 100px;
+    padding: 40px;
+    margin-bottom: 15px;
+}
+
+.user_profile_form button {
+    background-color: black;
+    color: white;
+    height: 30px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 170px;
+}
+
+input[type="button"] {
+    background-color: black;
+    color: white;
+    height: 30px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.user_profile_info {
+    margin-top: 15px;
+    height: 35px;
+    width: 295px;
+}
+
+.user_profile_info_onlyreading {
+    margin-top: 30px;
+    height: 35px;
+    width: 295px;
+    margin-bottom: 25px;
+
+}
+
+
+.user_profile_photo {
+    width: 220px;
+    border-radius: 150px;
+}
+
+.user_profile_label {
+    font-family: "Comfortaa-light";
+    padding-right: 10px;
+
+    margin-top: 15px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+
+.user_name,
+.user_surname,
+.user,
+.user_email {
+    height: 20px;
+}
+
+.user_name {
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+
+.user {
+    margin-left: 27px;
+    margin-bottom: 10px;
+}
+
+.user_email {
+    margin-left: 31px;
+}
+
+
+.logout {
+    width: 70px;
+    height: 30px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s;
+    position: fixed;
+    right: 55px;
+    top: 25px;
+
+
+}
+
+.logout a {
+    transition: all 0.3s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    /* color: white; */
+    z-index: 10;
+    /* margin-top: 70px; */
+
+}
+
+
+
+.logout::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-radius: 30%;
+    border-top-color: rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+    transform: scale(0.1, 1);
+}
+
+.logout:hover a {
+    letter-spacing: 2px;
+}
+
+.logout:hover::before {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.logout::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.3s;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 30%;
+}
+
+.logout:hover::after {
+    opacity: 0;
+    transform: scale(0.1, 1);
+    border-radius: 30%;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.profile_busket {
+    margin-top: -13px;
+    margin-right: 140px;
+}
+
+.profile_busket img {
+    margin-top: 5px;
+    height: 25px;
+    position: fixed;
+
+}
+
+.user_profile_img {
+    width: 35px;
+    position: fixed;
+    top: 23px;
+    right: 175px;
+
+}
+
+div.bg_profile {
+    position: fixed;
+    top: -30%;
+    left: 5%;
+    width: 200%;
+    height: 200%;
+    z-index: -3;
+
+}
+
+.form_errors {
+    width: 300px;
+    margin-left: -350px;
+    float: left;
+    margin-right: 5px;
+}

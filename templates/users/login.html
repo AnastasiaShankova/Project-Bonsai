@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+
+{% load static %}
+{% block title %}Login{% endblock %}
+
+
+{% block content %}
+    <div class="users_background">
+    <div class="users_wrapper alert {% if messages%} alert-success {%else%} alert-warning{%endif%}">
+        {%if messages or form.non_field_errors%}
+            {% if messages%}
+                {% for message in messages%}
+                    {{message}}
+                {% endfor %}
+            {%else%}
+                {{form.non_field_errors}}
+            {%endif%}
+        {%endif%}
+        <form class="signin" method="post" action="{% url "users:login" %}" autocomplete="off">
+            {% csrf_token %}
+            {{form.username}}
+            {{form.password}}
+            
+            <button type="submit">&#xf0da;</button>
+            <p>Еще нет аккаунта? <a href="{% url "users:registration" %}">Регистрация</a></p>
+        </form>
+    </div> 
+</div> 
+
+{% endblock %}

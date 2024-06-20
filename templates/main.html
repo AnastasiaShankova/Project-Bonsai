@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}Bonsai.by{% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static "styles/shop_style.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "styles/users_style.css" %}">  
+    <link rel="stylesheet" type="text/css" href="{% static "styles/orders_style.css" %}">  
+    
+</head>
+
+<body>
+       
+    <div class="wrapper">
+        {% include "shop/header.html" %}
+
+        {% include "shop/navbar.html" %}{%block navbar%}{%endblock navbar%}
+        
+        <div class="main">
+        {%block content%}
+
+        {%endblock content%}
+        </div>
+        
+        {% include "shop/footer.html" %}
+    </div>
+ 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>    
+<script type="text/javascript" src="{% static "js/script.js" %}"></script> 
+<script type="text/javascript" src="{% static "js/ajax.js" %}"></script>
+{% comment %} <script type="text/javascript" src="{% static "js/change_qty.js" %}"></script> {% endcomment %}
+
+</body>
+
+</html>

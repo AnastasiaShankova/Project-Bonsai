@@ -1,0 +1,43 @@
+{% extends "main.html" %}
+{% load static %}
+{% block title %}User account{% endblock %}
+
+
+{% block content %}
+<div class="bg_profile">
+    <img class=""src="{%static "images/bg_profile.png"%}" alt="">
+</div>
+
+<div class = 'user_profile_form'>
+    <img class='user_profile_photo' src="{% if user.photo %}{{user.photo.url}}{%else%}{% static 'users_images/user_profile.png'%}{% endif %}">
+<form  action=" {% url "users:profile"%} " method = "post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <div class='user_profile_photo'>
+        <label class='user_profile_label' for ="{{ form.photo.id_for_label}}"> </label> 
+    {{form.photo}}
+    </div>
+    <div class='user_profile_info'> 
+        <label class='user_profile_label' for ="{{ form.first_name.id_for_label}}"> Имя </label> 
+    {{form.first_name}}
+        <label class='user_profile_label' for ="{{ form.last_name.id_for_label}}"> Фамилия </label> 
+    {{form.last_name}}
+    </div>
+    <div class='user_profile_info_onlyreading'>
+        <label class='user_profile_label' for ="{{ form.username.id_for_label}}"> Логин </label> 
+    {{form.username}}
+    <label class='user_profile_label' for ="{{ form.email.id_for_label}}"> Email </label> 
+    {{form.email}}
+    </div>
+    <button type="submit"> Сохранить </button>
+</form>
+
+</div>
+
+
+{% include "shop/included_basket.html" %}
+{% include "orders/included_orders.html" %}
+
+
+
+
+{% endblock%}

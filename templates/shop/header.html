@@ -1,0 +1,41 @@
+{%load static%}
+
+    <div class="header">
+
+        <div class="logo">
+            <a class="logo" href="{% url "shop:index"%}">
+            <img class="logo" src="{% static "images/bonsailogo.png"%}">
+            </a>
+        </div>
+
+        <div class="buttons">
+            
+            {% if user.is_authenticated%}
+
+            <div class='user_profile'>
+                <a href="{% url "users:profile" %}"> <img class='user_profile_img' src="{% static "users_images/userprofile.png" %}"> </a>
+            </div>
+
+            <div class="profile_busket">
+                <a href="{% url "shop:basket"%}"> <img src="{% static "images/busket.png" %}"></a>
+                
+            </div>
+            <div class="total_qty" id="total_qty" data-basket_total_qty = "{{basket.total_qty}}" >
+                {{basket.total_qty}}
+            </div>
+
+            <div class="logout">
+                <a href="{% url "users:logout" %}">Выход</a>
+            </div>
+
+            {%else%}
+
+            <div class="login">
+                <a href="{% url "users:login" %}">Войти</a>
+            </div>
+
+
+            {%endif%}
+        </div>
+
+    </div>

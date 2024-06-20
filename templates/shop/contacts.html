@@ -1,0 +1,25 @@
+{%extends "main.html"%}
+{% load static %}
+{% block title %}Contacts{% endblock %}
+{% block content %}
+<div class="contacts">
+    <div class="contacts_info">
+        <div>
+        <h2>Удобная локация в центре города</h2>
+        Наш магазин находится в центре Минска,<br>
+        что позволяет с комфортом добраться из любой <br>
+        точки города, не затрачивая лишних усилий<br>
+        Гостям магазина предоставляется бесплатная парковка
+        </div>
+        <ul>
+        <li class="cont_list"><img class="image" src="{% static "images/b_location.png"%}"> г. Минск пр-т Жукова д.47</li>
+        <li class="cont_list"><img class="image" src="{% static "images/b_phone.png"%}"> + 375 29 391 38 72</li>
+        <li class="cont_list"><img class="image" src="{% static "images/b_time.png"%}"> c 10.00 до 20.00 ежедневно</li>
+        <li class="cont_list"><img class="image" src="{% static "images/b_mail.png"%}"> bonsai@mail.ru</li>
+        </ul>
+    </div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6469.912374899436!2d27.50809336330445!3d53.88254108080133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbd00f46b51bc7%3A0xf60fbad150c1ec6f!2z0L_RgNC-0YHQvy4g0JbRg9C60L7QstCwIDQ1LCDQnNC40L3RgdC6LCDQnNC40L3RgdC60LDRjyDQvtCx0LvQsNGB0YLRjCAyMjAwODk!5e0!3m2!1sru!2sby!4v1712511700303!5m2!1sru!2sby" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+{% endblock content %}

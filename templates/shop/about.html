@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+
+{% load static %}
+{% block title %}About us{% endblock %}
+    {% block content %}
+    <div class="bg_about">
+        <img class=""src="{%static "images/about_bg.png"%}" alt="">
+    </div>
+    <div class="about">
+    <div class="about_us_item1">BONSAI.BY - это торговый интернет-портал,помогающий создать комфорт 
+        и уют в вашем доме. <br/>
+        <div class="about_us_item2">Наши декоративные растения заряжают энергией, 
+        способствуют созданию настроения и гармонии с природой. 
+        </div>
+    </div>
+    <div class="about_us_item3">
+        Не знаете, какое растение впишется в ваш интерьер? Наши флористы помогут вам сделать правильный выбор.
+    </div>
+    <div class="about_us_item4">
+        <ul>
+            <li class="about_us_li4"> <img class= "icons" src= "{%static "images/icon.png"%}">  более 20 лет на рынке </li>
+            <li class="about_us_li4"><img class= "icons" src= "{%static "images/icon.png"%}"> богатый ассортимент и высокое качество растений </li>
+            <li class="about_us_li4"><img class= "icons" src= "{%static "images/icon.png"%}"> индивидуальный подход к каждому клиенту </li>
+            <li class="about_us_li4 about_us_li4_newstr"><img class= "icons" src= "{%static "images/icon.png"%}"> флористы - профессионалы </li>
+            <li class="about_us_li4"><img class= "icons" src= "{%static "images/icon.png"%}"> удобное оформление и оплата </li>
+            <li class="about_us_li4"><img class= "icons" src= "{%static "images/icon.png"%}"> бесплатная доставка </li>
+        </ul>
+    </div>
+    
+    </div>
+    {% endblock content %}
